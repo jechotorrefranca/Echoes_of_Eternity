@@ -1,11 +1,26 @@
-import "./App.css";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Gameplay from "./pages/Gameplay";
+import Prompting from "./pages/Prompting";
+import TitleScreen from "./pages/TitleScreen";
 
-function App() {
-  return (
-    <div className="flex justify-center items-center h-screen bg-blue-500">
-      <h1 className="text-4xl font-bold text-white">test</h1>
-    </div>
-  );
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <TitleScreen />,
+  },
+  {
+    path: "/game",
+    element: <Gameplay />,
+  },
+  {
+    path: "/prompt",
+    element: <Prompting />,
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
